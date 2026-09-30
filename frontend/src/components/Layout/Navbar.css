@@ -1,0 +1,118 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--canvas);
+  border-bottom: 1px solid var(--border);
+  height: var(--navbar-height);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: var(--space-lg);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.navbar__logo-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-subtle);
+  border-radius: var(--radius-base);
+}
+
+.navbar__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.navbar__brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text-heavy);
+}
+
+.navbar__brand-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.navbar__donor-count {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background-color: var(--secondary-subtle);
+  border-radius: var(--radius-full);
+  margin-left: var(--space-sm);
+}
+
+.navbar__donor-count .label-md {
+  color: var(--secondary-active);
+  font-size: 12px;
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-left: auto;
+}
+
+.navbar__link {
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--radius-base);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.navbar__link:hover {
+  color: var(--text-heavy);
+  background-color: var(--surface-1);
+}
+
+.navbar__link--active {
+  color: var(--text-heavy);
+  background-color: var(--surface-2);
+  font-weight: 600;
+}
+
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-left: var(--space-md);
+}
+
+.navbar__cta {
+  font-size: 13px;
+  min-height: 40px;
+  padding: 0 20px;
+  border-radius: var(--radius-base);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1023px) {
+  .navbar__nav {
+    display: none; /* TODO: hamburger menu for tablet/mobile */
+  }
+  .navbar__donor-count {
+    display: none;
+  }
+}

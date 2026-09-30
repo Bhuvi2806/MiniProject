@@ -1,0 +1,127 @@
+.chatbot-wrapper {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  z-index: 50;
+}
+
+.chatbot-fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--primary-base);
+  color: var(--text-white);
+  border: none;
+  box-shadow: var(--shadow-level-2);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chatbot-fab:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-level-3);
+}
+
+.chatbot-window {
+  width: 320px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-level-3);
+  animation: slideUp 0.3s ease-out;
+}
+
+.chatbot-header {
+  background-color: var(--primary-base);
+  color: var(--text-white);
+  padding: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chatbot-header .label-lg {
+  color: var(--text-white);
+}
+
+.chatbot-close {
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.chatbot-body {
+  flex: 1;
+  padding: var(--space-md);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background-color: var(--surface-1);
+}
+
+.chat-message {
+  max-width: 80%;
+  padding: 10px 14px;
+  border-radius: var(--radius-lg);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.chat-message--bot {
+  align-self: flex-start;
+  background-color: var(--canvas);
+  border: 1px solid var(--border);
+  color: var(--text-heavy);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-message--user {
+  align-self: flex-end;
+  background-color: var(--secondary-base);
+  color: var(--text-white);
+  border-bottom-right-radius: 4px;
+}
+
+.chatbot-footer {
+  display: flex;
+  padding: var(--space-sm);
+  gap: var(--space-sm);
+  background-color: var(--canvas);
+  border-top: 1px solid var(--border);
+}
+
+.chatbot-input {
+  flex: 1;
+  font-size: 13px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .chatbot-wrapper {
+    bottom: var(--space-md);
+    right: var(--space-md);
+  }
+  .chatbot-window {
+    width: calc(100vw - 32px);
+    height: 60vh;
+  }
+}

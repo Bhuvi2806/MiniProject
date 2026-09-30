@@ -1,0 +1,70 @@
+.footer {
+  margin-top: auto;
+}
+
+.footer__hotline {
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+  padding: 12px 0;
+}
+
+.footer__hotline-text {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.footer__hotline-icon {
+  font-size: 16px;
+}
+
+.footer__dispatch-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  background-color: rgba(255,255,255,0.15);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.footer__bottom {
+  background-color: var(--surface-1);
+  border-top: 1px solid var(--border);
+  padding: var(--space-lg) 0;
+}
+
+.footer__links {
+  display: flex;
+  gap: var(--space-lg);
+}
+
+.footer__link {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+.footer__link:hover {
+  color: var(--text-heavy);
+}
+
+@media (max-width: 767px) {
+  .footer__hotline .container {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+
+  .footer__bottom .container {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .footer__links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

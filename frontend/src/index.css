@@ -1,0 +1,559 @@
+/*
+ * ═══════════════════════════════════════════════════════════
+ *  VITAL RED DIRECT — Design System Stylesheet
+ *  Blood Donor Finder — All tokens from DESIGN.md
+ * ═══════════════════════════════════════════════════════════
+ */
+
+/* ─── Google Fonts ────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
+/* ─── CSS Custom Properties (Design Tokens) ───────────────── */
+:root {
+  /* ── Primary: Crimson Vitality ── */
+  --primary-base: #DC2626;
+  --primary-hover: #B91C1C;
+  --primary-dark: #991B1B;
+  --primary-subtle: #FEF2F2;
+  --primary-container: #dc2626;
+  --on-primary: #ffffff;
+  --on-primary-container: #fff6f5;
+
+  /* ── Secondary: Verified Green ── */
+  --secondary-base: #10B981;
+  --secondary-active: #059669;
+  --secondary-dark: #047857;
+  --secondary-subtle: #ECFDF5;
+
+  /* ── Neutrals & Surfaces ── */
+  --canvas: #FFFFFF;
+  --surface-1: #F8FAFC;
+  --surface-2: #F1F5F9;
+  --surface-dim: #d2d9f4;
+  --border: #E2E8F0;
+  --border-input: #CBD5E1;
+  --text-heavy: #0F172A;
+  --text-muted: #64748B;
+  --text-white: #FFFFFF;
+  --surface-container: #eaedff;
+
+  /* ── Semantic / Status ── */
+  --error: #ba1a1a;
+  --error-container: #ffdad6;
+  --on-error: #ffffff;
+  --warning-amber: #F59E0B;
+  --warning-amber-subtle: #FFFBEB;
+
+  /* ── Elevation Shadows (from DESIGN.md) ── */
+  --shadow-level-1: 0px 1px 3px rgba(15, 23, 42, 0.05), 0px 1px 2px rgba(15, 23, 42, 0.02);
+  --shadow-level-2: 0px 4px 12px -2px rgba(15, 23, 42, 0.08), 0px 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-level-3: 0px 12px 28px -4px rgba(220, 38, 38, 0.12), 0px 6px 14px -2px rgba(15, 23, 42, 0.08);
+
+  /* ── Radius ── */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-base: 0.5rem;  /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;  /* pill */
+
+  /* ── Spacing (8pt rhythm) ── */
+  --space-xs: 0.25rem;    /* 4px */
+  --space-sm: 0.5rem;     /* 8px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --gutter: 1.5rem;       /* 24px desktop */
+  --gutter-mobile: 1rem;  /* 16px mobile */
+  --margin: 2rem;
+  --margin-mobile: 1rem;
+
+  /* ── Typography Tokens ── */
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* ── Layout ── */
+  --max-width: 1280px;
+  --navbar-height: 64px;
+}
+
+/* ─── Reset & Base ────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-heavy);
+  background-color: var(--canvas);
+  min-height: 100vh;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, select, textarea {
+  font-family: var(--font-body);
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ─── Typography Utilities ────────────────────────────────── */
+.headline-xl {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 48px;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+.headline-md {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.headline-sm {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.body-lg {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.body-md {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.body-sm {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.label-lg {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+}
+
+.label-md {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.blood-badge {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Layout Container ────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--margin);
+  padding-right: var(--margin);
+}
+
+/* ─── Button System (from DESIGN.md Components) ───────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  padding: 0 var(--space-md);
+  min-height: 48px;
+  min-width: 48px;
+  border-radius: var(--radius-base);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-base);
+  color: var(--text-white);
+  border: none;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+.btn-primary:active {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-base);
+  color: var(--text-white);
+  border: none;
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-active);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-heavy);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover {
+  background-color: var(--surface-1);
+}
+
+.btn-disabled {
+  background-color: var(--surface-2);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  border: 1px solid var(--border);
+}
+
+.btn-sm {
+  min-height: 36px;
+  font-size: 13px;
+  padding: 0 var(--space-sm);
+}
+
+.btn-icon {
+  padding: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Blood Type Chip (48×48 pill toggle) ─────────────────── */
+.blood-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 48px;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background-color: var(--surface-1);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  color: var(--text-heavy);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.blood-chip:hover {
+  border-color: var(--primary-base);
+  background-color: var(--primary-subtle);
+}
+
+.blood-chip.active {
+  background-color: var(--primary-base);
+  border-color: var(--primary-dark);
+  color: var(--text-white);
+}
+
+.blood-chip.active:hover {
+  background-color: var(--primary-hover);
+}
+
+/* ─── Card (Level 1 elevation) ────────────────────────────── */
+.card {
+  background-color: var(--canvas);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-level-1);
+  padding: var(--space-lg);
+}
+
+.card-surface {
+  background-color: var(--surface-1);
+}
+
+/* ─── Urgent Alert Banner ─────────────────────────────────── */
+.alert-urgent {
+  background-color: var(--primary-subtle);
+  border: 1.5px solid #FCA5A5;
+  border-left: 4px solid var(--primary-base);
+  border-radius: var(--radius-base);
+  padding: var(--space-md) var(--space-lg);
+}
+
+/* ─── Status Badge (pill) ─────────────────────────────────── */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.status-badge--critical {
+  background-color: var(--primary-subtle);
+  color: var(--primary-dark);
+  border: 1px solid #FCA5A5;
+}
+
+.status-badge--low {
+  background-color: #FFF7ED;
+  color: #9A3412;
+  border: 1px solid #FDBA74;
+}
+
+.status-badge--moderate {
+  background-color: #FFFBEB;
+  color: #92400E;
+  border: 1px solid #FCD34D;
+}
+
+.status-badge--healthy,
+.status-badge--optimal {
+  background-color: var(--secondary-subtle);
+  color: var(--secondary-dark);
+  border: 1px solid #6EE7B7;
+}
+
+.status-badge--adequate {
+  background-color: #F0FDF4;
+  color: #166534;
+  border: 1px solid #86EFAC;
+}
+
+.status-badge--surplus {
+  background-color: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #6EE7B7;
+}
+
+.status-badge--available {
+  background-color: var(--secondary-subtle);
+  color: var(--secondary-active);
+}
+
+.status-badge--standby {
+  background-color: var(--surface-2);
+  color: var(--text-muted);
+}
+
+/* ─── Progress Bar ────────────────────────────────────────── */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: var(--surface-2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+.progress-bar__fill--primary {
+  background-color: var(--primary-base);
+}
+
+.progress-bar__fill--secondary {
+  background-color: var(--secondary-base);
+}
+
+.progress-bar__fill--warning {
+  background-color: var(--warning-amber);
+}
+
+/* ─── Form Inputs (from DESIGN.md) ────────────────────────── */
+.input {
+  height: 44px;
+  padding: 0 var(--space-md);
+  background-color: var(--canvas);
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius-base);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-heavy);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--primary-base);
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--primary-base);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+/* ─── Pulsing available dot ───────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.4); }
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--secondary-base);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.pulse-dot--red {
+  background-color: var(--primary-base);
+}
+
+/* ─── Utility Classes ─────────────────────────────────────── */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+.gap-xl { gap: var(--space-xl); }
+.text-center { text-align: center; }
+.text-muted { color: var(--text-muted); }
+.text-primary { color: var(--primary-base); }
+.text-secondary { color: var(--secondary-base); }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .container {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-left: var(--margin-mobile);
+    padding-right: var(--margin-mobile);
+  }
+
+  .headline-xl {
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.015em;
+  }
+
+  .headline-lg {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+  }
+
+  .headline-md {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+/* ─── Leaflet overrides ───────────────────────────────────── */
+.leaflet-container {
+  border-radius: var(--radius-base);
+  z-index: 1;
+}

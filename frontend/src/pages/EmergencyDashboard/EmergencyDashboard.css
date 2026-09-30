@@ -1,0 +1,521 @@
+/* ═════════════════════════════════════════════════════════
+ *  Emergency Requests Dashboard — Styles
+ * ═════════════════════════════════════════════════════════ */
+
+.emergency-page {
+  padding-bottom: var(--space-2xl);
+}
+
+/* ── Dispatch Banner ── */
+.dispatch-banner {
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.dispatch-banner__badge {
+  background-color: var(--primary-base);
+  padding: 2px 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dispatch-banner__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 12px;
+}
+
+/* ── Stat Row ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gutter);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.stat-card {
+  background-color: var(--canvas);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-level-1);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.stat-card--code-red {
+  background: linear-gradient(135deg, var(--primary-base) 0%, var(--primary-hover) 100%);
+  color: var(--text-white);
+  border-color: var(--primary-dark);
+}
+
+.stat-card--code-red .label-md,
+.stat-card--code-red .body-sm {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.stat-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-card__threshold {
+  background-color: rgba(255,255,255,0.2);
+  padding: 1px 8px;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  margin-left: 4px;
+}
+
+.stat-card__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.stat-card__icon--sos { background-color: var(--primary-subtle); }
+.stat-card__icon--alert { background-color: rgba(255,255,255,0.2); }
+.stat-card__icon--route { background-color: var(--secondary-subtle); }
+.stat-card__icon--units { background-color: var(--surface-2); }
+
+.stat-card__value {
+  margin: var(--space-xs) 0;
+}
+
+.stat-card__value .headline-md {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.stat-card__value-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.stat-card__change {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.stat-card__target {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ── Requisition Board Header ── */
+.requisition-section {
+  margin-bottom: var(--space-xl);
+}
+
+.requisition-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.requisition-header__actions {
+  display: flex;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+/* ── Triage Tabs ── */
+.triage-tabs {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.triage-tabs__list {
+  display: flex;
+  gap: 4px;
+}
+
+.triage-tab {
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  background-color: var(--canvas);
+  transition: all 0.15s ease;
+  cursor: pointer;
+  min-height: 36px;
+}
+
+.triage-tab:hover {
+  border-color: var(--primary-base);
+  color: var(--text-heavy);
+}
+
+.triage-tab--active {
+  background-color: var(--text-heavy);
+  color: var(--text-white);
+  border-color: var(--text-heavy);
+}
+
+/* ── Blood Group Filter Row ── */
+.blood-filter-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.blood-filter-row__chips {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* ── Map Section ── */
+.map-section {
+  margin-bottom: var(--space-xl);
+}
+
+.map-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.map-section__body {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--gutter);
+}
+
+.map-section__map {
+  border-radius: var(--radius-base);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.map-section__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.map-info-card {
+  padding: var(--space-md) !important;
+}
+
+/* ── Case Cards ── */
+.cases-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.case-card {
+  padding: var(--space-lg);
+  transition: box-shadow 0.2s ease;
+}
+
+.case-card:hover {
+  box-shadow: var(--shadow-level-2);
+}
+
+.case-card--fulfilled {
+  border-color: #6EE7B7;
+  background-color: #FAFFFE;
+}
+
+.case-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.case-card__time {
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.case-triage {
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.case-triage--code-red {
+  background-color: var(--primary-base);
+  color: var(--text-white);
+}
+
+.case-triage--high-priority {
+  background-color: var(--primary-subtle);
+  color: var(--primary-dark);
+  border: 1px solid #FCA5A5;
+}
+
+.case-triage--critical {
+  background-color: #FFF7ED;
+  color: #9A3412;
+  border: 1px solid #FDBA74;
+}
+
+.case-triage--matched {
+  background-color: var(--secondary-subtle);
+  color: var(--secondary-dark);
+  border: 1px solid #6EE7B7;
+}
+
+.case-card__body {
+  display: grid;
+  grid-template-columns: 260px 1fr 200px;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.case-card__info {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.case-blood-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 64px;
+  padding: var(--space-sm);
+  background-color: var(--primary-subtle);
+  border: 2px solid var(--primary-base);
+  border-radius: var(--radius-base);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.case-blood-badge__type {
+  color: var(--primary-base);
+}
+
+.case-blood-badge__label {
+  color: var(--primary-dark);
+  font-size: 10px;
+  margin-top: 2px;
+  text-transform: uppercase;
+}
+
+.case-card--fulfilled .case-blood-badge {
+  background-color: var(--secondary-subtle);
+  border-color: var(--secondary-base);
+}
+
+.case-card--fulfilled .case-blood-badge__type {
+  color: var(--secondary-active);
+}
+
+.case-card--fulfilled .case-blood-badge__label {
+  color: var(--secondary-dark);
+}
+
+.case-card__hospital {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.case-card__progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.case-card__responders {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-sm);
+}
+
+.responder-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.case-card__broadcast {
+  background-color: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-base);
+  padding: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.case-card__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+}
+
+/* ── Feature Row ── */
+.feature-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+  margin-bottom: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.feature-card__icon {
+  font-size: 24px;
+}
+
+/* ── Enrollment Section ── */
+.enrollment-section {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: var(--space-2xl);
+  background-color: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-xl);
+}
+
+.enrollment-badges {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.enrollment-headline {
+  margin-bottom: var(--space-md);
+}
+
+.enrollment-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm) var(--space-xl);
+  margin-top: var(--space-lg);
+}
+
+.enrollment-perk {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-heavy);
+}
+
+.enrollment-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.enrollment-blood-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+.enrollment-phone-row {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.enrollment-submit {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .stat-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-card__body {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card__cta {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .enrollment-section {
+    grid-template-columns: 1fr;
+  }
+
+  .map-section__body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  .requisition-header {
+    flex-direction: column;
+  }
+
+  .requisition-header__actions {
+    width: 100%;
+  }
+
+  .requisition-header__actions .btn {
+    flex: 1;
+  }
+
+  .feature-row {
+    grid-template-columns: 1fr;
+  }
+
+  .triage-tabs {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .enrollment-perks {
+    grid-template-columns: 1fr;
+  }
+
+  .enrollment-blood-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
